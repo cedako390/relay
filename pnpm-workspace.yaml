@@ -1,0 +1,9 @@
+packages:
+  - packages/*
+minimumReleaseAgeExclude:
+  - zod@4.6.6
+allowBuilds:
+  better-sqlite3: true
+  node-pty: true
+  esbuild: true
+  electron: true

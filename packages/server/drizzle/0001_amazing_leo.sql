@@ -1,0 +1,1 @@
+ALTER TABLE `tasks` ADD `creator_session_id` text;

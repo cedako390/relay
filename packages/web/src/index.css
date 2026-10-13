@@ -1,0 +1,88 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import '@xterm/xterm/css/xterm.css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Dark slate theme: darker chrome (title bar, sidebar), lighter work area */
+:root {
+  --radius: 0.5rem;
+  --background: #262b36;
+  --foreground: #e6e8ec;
+  --card: #2c323e;
+  --card-foreground: #e6e8ec;
+  --popover: #2c323e;
+  --popover-foreground: #e6e8ec;
+  --primary: #e6e8ec;
+  --primary-foreground: #1d2027;
+  --secondary: #343b49;
+  --secondary-foreground: #e6e8ec;
+  --muted: #343b49;
+  --muted-foreground: #9aa2b1;
+  --accent: #333a48;
+  --accent-foreground: #f2f3f5;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: rgb(255 255 255 / 8%);
+  --input: rgb(255 255 255 / 12%);
+  --ring: #6b7385;
+  --sidebar: #1d2027;
+  --titlebar: #15171c;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-titlebar: var(--titlebar);
+  --font-mono: 'Cascadia Mono', 'JetBrains Mono', 'SF Mono', Consolas, 'Liberation Mono', monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+  }
+}
+
+/* xterm fills its container */
+.xterm {
+  height: 100%;
+  padding: 10px 12px;
+}
+.xterm .xterm-viewport {
+  background-color: transparent !important;
+  /* xterm 6 scrolls with its own overlay scrollbar; the native one on the viewport is an inert duplicate. */
+  scrollbar-width: none;
+}
+.xterm .xterm-viewport::-webkit-scrollbar {
+  display: none;
+}

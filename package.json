@@ -1,0 +1,22 @@
+{
+  "name": "orchestrator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.11.2",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "pnpm --parallel --filter @orch/server --filter @orch/web dev",
+    "build": "pnpm -r build",
+    "app": "pnpm build && pnpm --filter @orch/desktop start",
+    "app:quick": "pnpm --filter @orch/desktop start",
+    "app:dev": "pnpm --filter @orch/desktop dev",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "db:generate": "pnpm --filter @orch/server db:generate",
+    "db:migrate": "pnpm --filter @orch/server db:migrate"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3"
+  }
+}
